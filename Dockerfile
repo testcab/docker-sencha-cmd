@@ -16,5 +16,10 @@ RUN wget "http://cdn.sencha.com/cmd/$CMD_VERSION/no-jre/SenchaCmd-$CMD_VERSION-l
  &&     ./SenchaCmd-$CMD_VERSION-linux-amd64.sh -q -Dall=true -V'addToPath$Integer=1' -dir /opt/Sencha/Cmd/$CMD_VERSION \
  && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh
 
+# Fix PhantomJS SSL error
+# https://github.com/DMOJ/online-judge/pull/1270
+# https://github.com/wch/webshot/pull/93#issuecomment-603413554
+ENV OPENSSL_CONF=/etc/ssl
+
 ENV PATH="/opt/Sencha/Cmd:$PATH"
 ENTRYPOINT [ "/opt/Sencha/Cmd/sencha" ]
