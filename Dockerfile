@@ -1,6 +1,5 @@
 FROM openjdk:8-jre
 LABEL maintainer="test.cab <git@test.cab>"
-ARG CMD_VERSION=7.3.0.19
 
 # https://docs.sencha.com/cmd/7.3.0/guides/getting_started_cmd.html#getting_started_cmd_-_dependencies
 RUN apt-get update \
@@ -10,6 +9,7 @@ RUN apt-get update \
  # Compass extension dependencies
  && apt-get install -y ruby
 
+ARG CMD_VERSION=7.3.0.19
 RUN wget "http://cdn.sencha.com/cmd/$CMD_VERSION/no-jre/SenchaCmd-$CMD_VERSION-linux-amd64.sh.zip" \
  && unzip SenchaCmd-$CMD_VERSION-linux-amd64.sh.zip \
  && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh.zip \
