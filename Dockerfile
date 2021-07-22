@@ -14,7 +14,10 @@ RUN wget "http://cdn.sencha.com/cmd/$CMD_VERSION/no-jre/SenchaCmd-$CMD_VERSION-l
  && unzip SenchaCmd-$CMD_VERSION-linux-amd64.sh.zip \
  && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh.zip \
  &&     ./SenchaCmd-$CMD_VERSION-linux-amd64.sh -q -Dall=true -V'addToPath$Integer=1' -dir /opt/Sencha/Cmd/$CMD_VERSION \
- && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh
+ && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh \
+ # Make sencha runnable with non-root user
+ && mkdir /opt/Sencha/Cmd/repo \
+ && chmod 777 /opt/Sencha/Cmd/repo
 
 # Fix PhantomJS SSL error
 # https://github.com/DMOJ/online-judge/pull/1270
