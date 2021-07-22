@@ -17,7 +17,9 @@ RUN wget "http://cdn.sencha.com/cmd/$CMD_VERSION/no-jre/SenchaCmd-$CMD_VERSION-l
  && rm    SenchaCmd-$CMD_VERSION-linux-amd64.sh \
  # Make sencha runnable with non-root user
  && mkdir /opt/Sencha/Cmd/repo \
- && chmod 777 /opt/Sencha/Cmd/repo
+ && chmod 777 /opt/Sencha/Cmd/repo \
+ # Fix generated directory '?' when running sencha
+ && echo -Duser.home=/tmp >> /opt/Sencha/Cmd/$CMD_VERSION/sencha.vmoptions
 
 # Fix PhantomJS SSL error
 # https://github.com/DMOJ/online-judge/pull/1270
