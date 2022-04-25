@@ -8,7 +8,8 @@ Docker image for [Sencha Cmd](https://www.sencha.com/products/extjs/cmd-download
 
 ### Supported Tags
 
-* `7.4.0.39`, `7.4.0`, `7.4`, `7`, `latest`
+* `7.5.0.5`, `7.5.0`, `7.5`, `7`, `latest`
+* `7.4.0.39`, `7.4.0`, `7.4`
 * `7.3.0.19`, `7.3.0`, `7.3`
 * `7.2.0.84`, `7.2.0`, `7.2`
 * `7.1.0.15`, `7.1.0`, `7.1`
